@@ -9,6 +9,7 @@ const GAME_BASE_URL =
   "https://dev-api-game.beratown.app";
 
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true
