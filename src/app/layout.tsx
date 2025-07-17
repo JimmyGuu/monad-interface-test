@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import Script from "next/script";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { ToastContainer } from "react-toastify";
@@ -22,6 +22,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    async function loadPlugin() {
+      if (typeof window !== 'undefined') {
+        const VConsole = await import('vconsole');
+        new VConsole.default();
+      }
+    }
+    loadPlugin();
+  }, []);
+
   return (
     <html lang="en" className="md:overflow-hidden">
       <head>
