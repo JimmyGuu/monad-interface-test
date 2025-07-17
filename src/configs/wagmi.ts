@@ -12,6 +12,8 @@ if (!projectId) {
   throw new Error("Project ID is not defined");
 }
 
+console.log("projectId: %o", projectId);
+
 export const metadata = {
   name: "MonadX",
   description: "MonadX",
@@ -38,20 +40,3 @@ export const config = getDefaultConfig({
     [mainnet.id]: http("https://eth.merkle.io"),
   },
 });
-
-// export const wagmiAdapter = new WagmiAdapter({
-//   // @ts-ignore
-//   storage: createStorage({
-//     storage: cookieStorage
-//   }),
-//   ssr: true,
-//   projectId,
-//   networks,
-//   // @ts-ignore
-//   connectors,
-//   transports: {
-//     [DEFAULT_CHAIN_ID]: fallback([http("https://testnet-rpc.monad.xyz")]),
-//   }
-// });
-
-// export const config = wagmiAdapter.wagmiConfig;
