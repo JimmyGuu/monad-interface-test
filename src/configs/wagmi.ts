@@ -32,7 +32,7 @@ export const config = getDefaultConfig({
   storage: createStorage({
     storage: cookieStorage
   }),
-  ssr: true,
+  ssr: false,
   projectId: projectId,
   chains: [monadTestnet, mainnet],
   transports: {
