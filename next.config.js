@@ -113,29 +113,29 @@ const nextConfig = {
     };
 
     config.optimization.emitOnErrors = true;
-    if (
-      process.env.NEXT_PUBLIC_API === "https://testnet-api-monad.dapdap.net"
-    ) {
-      config.optimization.minimizer = [
-        new TerserPlugin({
-          terserOptions: {
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              pure_funcs: ["console.warn"]
-            },
-            mangle: {
-              safari10: true
-            },
-            format: {
-              comments: false
-            },
-            ecma: 2015
-          },
-          parallel: true
-        })
-      ];
-    }
+    // if (
+    //   process.env.NEXT_PUBLIC_API === "https://testnet-api-monad.dapdap.net"
+    // ) {
+    //   config.optimization.minimizer = [
+    //     new TerserPlugin({
+    //       terserOptions: {
+    //         compress: {
+    //           drop_console: true,
+    //           drop_debugger: true,
+    //           pure_funcs: ["console.warn"]
+    //         },
+    //         mangle: {
+    //           safari10: true
+    //         },
+    //         format: {
+    //           comments: false
+    //         },
+    //         ecma: 2015
+    //       },
+    //       parallel: true
+    //     })
+    //   ];
+    // }
     return config;
   },
   experimental: {
@@ -148,6 +148,7 @@ const nextConfig = {
       "react-dom",
       "framer-motion",
       "wagmi",
+      "@rainbow-me/rainbowkit",
       "viem",
       "zustand",
       "react-loading-skeleton",
