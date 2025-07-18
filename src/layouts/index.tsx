@@ -27,8 +27,7 @@ export default function Layout({ children }: any) {
 
   return (
     <MainLayout>
-      {<InvitationView />}
-      {!validUser ? null : children}
+      {children}
       {<GuideView />}
     </MainLayout>
   );
