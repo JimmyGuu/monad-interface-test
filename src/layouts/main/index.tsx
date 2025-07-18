@@ -10,6 +10,7 @@ import MainLayoutHeader from "@/layouts/main/header";
 import React, { useEffect } from "react";
 import { useAccount } from "wagmi";
 import clsx from "clsx";
+import { useInvitationContext } from "@/context/invitation";
 
 const MainLayout = (props: Props) => {
   const { children, style } = props;
@@ -18,6 +19,7 @@ const MainLayout = (props: Props) => {
   const { handleTrack } = useClickTracking();
   const { initializePrice } = useTokenPrice();
   const { handleReportNoCode } = useClickTracking();
+  const { validUser } = useInvitationContext();
 
   useEffect(() => {
     handleReportNoCode();
@@ -42,9 +44,17 @@ const MainLayout = (props: Props) => {
         ...style
       }}
     >
-      <MainLayoutHeader />
+      {
+        validUser && (
+          <MainLayoutHeader />
+        )
+      }
       <div className="relative grow">{children}</div>
-      <MainLayoutFooter />
+      {
+        validUser && (
+          <MainLayoutFooter />
+        )
+      }
     </div>
   );
 };

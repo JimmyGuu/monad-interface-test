@@ -6,7 +6,6 @@ import InvitationView from "@/sections/invitation";
 import useIsMobile from "@/hooks/use-isMobile";
 import GuideView from "@/sections/invitation/guide";
 import Downtime from "@/components/downtime";
-import clsx from "clsx";
 
 // process.env.NEXT_PUBLIC_SYSTEM_MAINTENANCE_DOWNTIME === "true"
 const isSystemMaintenanceDowntime = false;
@@ -29,9 +28,7 @@ export default function Layout({ children }: any) {
   return (
     <MainLayout>
       {<InvitationView />}
-      <div className={clsx("w-full h-full", validUser ? "block" : "hidden")}>
-        {children}
-      </div>
+      {!validUser ? null : children}
       {<GuideView />}
     </MainLayout>
   );
