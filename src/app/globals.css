@@ -70,6 +70,7 @@ body {
   --primary: #836ef9;
   /* 设计标准是 1440px， 分成 100 份 */
   --rem: calc(1440 / 100) * 1px;
+  --wcm-z-index: 9999;
 }
 
 @media (prefers-color-scheme: dark) {
