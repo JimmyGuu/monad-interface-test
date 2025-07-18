@@ -17,6 +17,8 @@ import InvitationContextProvider from "@/context/invitation";
 
 dayjs.extend(utc);
 
+const isShutdown = true;
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -49,7 +51,7 @@ export default function RootLayout({
             <SceneContextProvider>
               <InvitationContextProvider>
                 <Suspense>
-                  <MainLayout>{children}</MainLayout>
+                  <MainLayout>{isShutdown ? null : children}</MainLayout>
                 </Suspense>
               </InvitationContextProvider>
             </SceneContextProvider>
